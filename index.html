@@ -4,6 +4,32 @@
   </head>
 
   <body>
-    <p>Score: </p>
+    <p>Score: <span id="score">0</span></p>
+    <img src="images/trolled.png" height="256px" width="256px" onclick="addToScore(1)">
+    <button onclick="buydoge()">doge [<span id="dogecost">15</span>]--<span id="doges">0</span></button>
+
+    <script>
+      var score=0;
+
+      var dogecost=15;
+      var doges=0;
+
+      function buydoge() {
+        if (score>=dogecost) {
+          score=score-dogecost;
+          doges=doges+1;
+          dogecost=math.Round(dogecost*1.15);
+
+          document.getElementById("score").innerHTML=score;
+          document.getElementById("dogecost").innerHTML=dogecost;
+          document.getElementById("doges").innerHTML=doges;
+        }
+      }
+
+      function addToScore(amount) {
+        score=score+amount;
+        document.getElementById("score").innerHTML=score;
+      }
+    </script>
   </body>
 </html>
